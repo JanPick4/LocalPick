@@ -123,10 +123,10 @@
   </div>
 </section>
 
-<!-- 2. COMPARATIVA VISUAL EXTREMA (El cost de no actuar) -->
+<!-- 2. COMPARATIVA VISUAL EXTREMA (Amb Toggle en mòbil) -->
 <section class="py-16 sm:py-24 bg-slate-50 border-y border-slate-200/80">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
       <span class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-3 py-1 rounded-md border border-rose-200/60 mb-3">
         La realitat de Google al teu barri
       </span>
@@ -134,22 +134,32 @@
         La diferència entre ser invisible o dominar el mapa.
       </h2>
       <p class="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-        Quan un veí busca els teus serveis al mòbil, decideix en menys de 10 segons a qui truca. Aquest és el contrast real:
+        Quan un veí busca els teus serveis al mòbil, decideix en menys de 10 segons a qui truca.
       </p>
     </div>
 
+    <!-- Selector NOMÉS per a mòbil -->
+    <div class="flex lg:hidden bg-slate-200/70 p-1.5 rounded-2xl mb-6 max-w-md mx-auto">
+      <button id="btn-bad" onclick="toggleCompare('bad')" class="w-1/2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-rose-600 shadow-sm">
+        ✕ Sense optimitzar
+      </button>
+      <button id="btn-good" onclick="toggleCompare('good')" class="w-1/2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600">
+        ✓ Amb LocalPick
+      </button>
+    </div>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-      <!-- Targeta Esquerra: LO PITJOR (Negoci invisible) -->
-      <div class="bg-white rounded-3xl border border-rose-200/80 p-7 sm:p-9 shadow-subtle flex flex-col justify-between relative overflow-hidden">
+      <!-- Targeta Esquerra: LO PITJOR -->
+      <div id="card-bad" class="bg-white rounded-3xl border border-rose-200/80 p-6 sm:p-9 shadow-subtle flex flex-col justify-between relative overflow-hidden">
         <div class="absolute top-0 left-0 right-0 h-1.5 bg-rose-500"></div>
         <div>
-          <div class="flex items-center justify-between gap-3 mb-6">
+          <div class="flex items-center justify-between gap-3 mb-5">
             <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
               Sense optimitzar
             </span>
             <span class="text-xs font-semibold text-slate-400">El que passa ara</span>
           </div>
-          <h3 class="font-display font-extrabold text-2xl text-slate-900 mb-6">
+          <h3 class="font-display font-extrabold text-2xl text-slate-900 mb-5">
             Negoci invisible a Google
           </h3>
           <ul class="space-y-4">
@@ -167,13 +177,76 @@
             </li>
           </ul>
         </div>
-        <div class="mt-8 pt-5 border-t border-rose-100 bg-rose-50/60 -mx-7 -mb-7 sm:-mx-9 sm:-mb-9 p-6 sm:px-9">
+        <div class="mt-8 pt-5 border-t border-rose-100 bg-rose-50/60 -mx-6 -mb-6 sm:-mx-9 sm:-mb-9 p-6 sm:px-9">
           <span class="text-xs font-bold uppercase tracking-wider text-rose-600 block mb-1">Resultat real</span>
           <p class="text-sm sm:text-base font-bold text-slate-900">
             Regales entre 20 i 50 clients cada mes a la teva competència del costat.
           </p>
         </div>
       </div>
+
+      <!-- Targeta Dreta: LO MILLOR -->
+      <div id="card-good" class="hidden lg:flex bg-white rounded-3xl border-2 border-blue-600 p-6 sm:p-9 shadow-card flex-col justify-between relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-blue-600"></div>
+        <div>
+          <div class="flex items-center justify-between gap-3 mb-5">
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              Sistema LocalPick
+            </span>
+            <span class="text-xs font-semibold text-emerald-600">Objectiu directe</span>
+          </div>
+          <h3 class="font-display font-extrabold text-2xl text-slate-900 mb-5">
+            El negoci referent del teu poble
+          </h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">✓</div>
+              <p class="text-sm sm:text-base text-slate-700"><strong class="text-slate-900">Dominant el Top 3 de Google Maps:</strong> ets la primera opció que veuen quan busquen el teu servei.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">✓</div>
+              <p class="text-sm sm:text-base text-slate-700"><strong class="text-slate-900">Imatge impecable i ressenyes noves:</strong> desenes de clients de 5 estrelles validen la teva feina cada mes.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs mt-0.5">✓</div>
+              <p class="text-sm sm:text-base text-slate-700"><strong class="text-slate-900">Web directa al gra:</strong> entren, veuen què fas i et truquen o t'escriuen per WhatsApp en 1 sol clic.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-8 pt-5 border-t border-emerald-100 bg-emerald-50/70 -mx-6 -mb-6 sm:-mx-9 sm:-mb-9 p-6 sm:px-9">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">Resultat real</span>
+          <p class="text-sm sm:text-base font-bold text-slate-900">
+            Flux constant de trucades i pressupostos sense dependre només del boca a boca.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function toggleCompare(side) {
+    const cardBad = document.getElementById('card-bad');
+    const cardGood = document.getElementById('card-good');
+    const btnBad = document.getElementById('btn-bad');
+    const btnGood = document.getElementById('btn-good');
+
+    if (side === 'bad') {
+      cardBad.classList.remove('hidden');
+      cardBad.classList.add('flex');
+      cardGood.classList.add('hidden');
+      cardGood.classList.remove('flex');
+      btnBad.className = 'w-1/2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-rose-600 shadow-sm';
+      btnGood.className = 'w-1/2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600';
+    } else {
+      cardGood.classList.remove('hidden');
+      cardGood.classList.add('flex');
+      cardBad.classList.add('hidden');
+      cardBad.classList.remove('flex');
+      btnGood.className = 'w-1/2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-blue-600 text-white shadow-sm';
+      btnBad.className = 'w-1/2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600';
+    }
+  }
+</script>
 
       <!-- Targeta Dreta: LO MILLOR (Sistema LocalPick) -->
       <div class="bg-white rounded-3xl border-2 border-blue-600 p-7 sm:p-9 shadow-card flex flex-col justify-between relative overflow-hidden">
@@ -382,41 +455,34 @@
                 </span>
               </div>
             </div>
-            <!-- Verified #1 Result Card -->
+         <!-- Verified #1 Result Card -->
             <div class="bg-white rounded-xl border-2 border-blue-500 p-4 shadow-sm relative">
-              <div class="flex items-start justify-between gap-3">
-                <div>
+              <div class="flex items-center justify-between gap-2">
+                <div class="min-w-0">
                   <div class="flex items-center gap-1.5">
-                    <h4 class="font-bold text-sm sm:text-base text-slate-900">Jardineria Bayma</h4>
-                    <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <h4 class="font-bold text-sm sm:text-base text-slate-900 truncate">Jardineria Bayma</h4>
+                    <svg class="w-4 h-4 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
                     </svg>
                   </div>
-                  <div class="flex items-center gap-1.5 text-xs text-amber-500 mt-1 font-medium">
-                    <span>4.8</span>
-                    <span>★★★★★</span>
-                    <span class="text-slate-500">(23 ressenyes a Google)</span>
+                  <div class="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-amber-500 mt-1 font-medium">
+                    <span class="whitespace-nowrap">4.8 ★★★★★</span>
+                    <span class="text-slate-500 whitespace-nowrap">(23 ressenyes)</span>
                   </div>
                   <p class="text-xs text-slate-500 mt-1">
                     Jardiner · El Masnou
                   </p>
                 </div>
-                <a href="https://wa.me/34651785378?text=Hola%20Jan,%20he%20vist%20el%20cas%20d'%C3%A8xit%20de%20Jardineria%20Bayma%20i%20vull%20resultats%20similars%20per%20al%20meu%20negoci." target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-sm transition-colors cursor-pointer shrink-0">
+                <a href="https://wa.me/34651785378?text=Hola%20Jan,%20he%20vist%20el%20cas%20d'%C3%A8xit%20de%20Jardineria%20Bayma%20i%20vull%20resultats%20similars%20per%20al%20meu%20negoci." target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-3.5 py-2 rounded-lg shadow-sm transition-colors cursor-pointer shrink-0">
                   Trucar
                 </a>
               </div>
             </div>
             <!-- Faded Competitor 2 -->
-            <div class="mt-2.5 bg-white/70 rounded-xl border border-slate-200/70 p-3 opacity-60 flex items-center justify-between text-xs">
-              <span class="text-slate-600 font-medium">2. Jardins del Maresme S.L. (3.9 ★ - 6 ressenyes)</span>
-              <span class="text-[11px] text-slate-400">Sense web</span>
+            <div class="mt-2.5 bg-white/70 rounded-xl border border-slate-200/70 p-3 opacity-60 flex items-center justify-between gap-2 text-xs">
+              <span class="text-slate-600 font-medium truncate">2. Jardins del Maresme (3.9 ★ · 6)</span>
+              <span class="text-[11px] text-slate-400 shrink-0">Sense web</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- 5. COM TREBALLEM (Procés en 3 passos) -->
 <section class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
